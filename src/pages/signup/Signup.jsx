@@ -63,7 +63,6 @@ export default function Signup() {
           onChange={(e) => setPassword(e.target.value)}
         />
       </label>
-
       <label>
         <span>display name:</span>
         <input
@@ -73,14 +72,12 @@ export default function Signup() {
           onChange={(e) => setDisplayName(e.target.value)}
         />
       </label>
-
       <label>
         <span>profile thumbnail:</span>
         <input type='file' required onChange={handleFileChange} />
 
         {thumbnailError && <div className='error'>{thumbnailError}</div>}
       </label>
-
       <button className='btn'>Sign Up</button>
     </form>
   );
