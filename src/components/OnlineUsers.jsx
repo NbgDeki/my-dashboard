@@ -16,8 +16,9 @@ export default function OnlineUsers() {
       {error && <div className='error'>{error}</div>}
 
       {documents &&
-        documents.map(({ id, displayName, photoURL }) => (
+        documents.map(({ id, displayName, photoURL, online }) => (
           <div className='user-list-item' key={id}>
+            <span className={`online-${online}`}></span>
             <span>{displayName}</span>
             <Avatar src={photoURL}></Avatar>
           </div>
