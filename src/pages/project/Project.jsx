@@ -21,7 +21,7 @@ export default function Project() {
   return (
     <div className='project-details'>
       <ProjectSummary project={document}></ProjectSummary>
-      <ProjectComments></ProjectComments>
+      <ProjectComments project={document}></ProjectComments>
     </div>
   );
 }
