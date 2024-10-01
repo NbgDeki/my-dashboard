@@ -14,8 +14,8 @@
 
   .due-date {
     margin: 10px 0;
-    padding: 30px;
     border-radius: 4px;
+    color: index.$text-color;
   }
 
   .details {
@@ -41,5 +41,16 @@
 
   & + .btn {
     margin-top: 20px;
+  }
+}
+
+.project-comments {
+  label {
+    margin-bottom: 0;
+  }
+
+  textarea {
+    min-height: 40px;
+    font-size: 1.5em;
   }
 }
