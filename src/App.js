@@ -1,9 +1,4 @@
-import {
-  BrowserRouter,
-  Route,
-  Switch,
-  Redirect
-} from 'react-router-dom/cjs/react-router-dom.min';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useAuthContext } from './hooks/useAuthContext';
 
 // styles
@@ -30,32 +25,44 @@ function App() {
 
           <div className='container'>
             <Navbar></Navbar>
-            <Switch>
-              <Route exact path='/'>
-                {!user && <Redirect to='/login'></Redirect>}
-                {user && <Dashboard></Dashboard>}
-              </Route>
+            <Routes>
+              <Route
+                path='/'
+                element={
+                  user ? (
+                    <Dashboard></Dashboard>
+                  ) : (
+                    <Navigate to='/login'></Navigate>
+                  )
+                }
+              />
 
-              <Route path='/create'>
-                {!user && <Redirect to='/login'></Redirect>}
-                {user && <Create></Create>}
-              </Route>
+              <Route
+                path='/create'
+                element={
+                  user ? <Create></Create> : <Navigate to='/login'></Navigate>
+                }
+              />
 
-              <Route path='/projects/:id'>
-                {!user && <Redirect to='/login'></Redirect>}
-                {user && <Project></Project>}
-              </Route>
+              <Route
+                path='/projects/:id'
+                element={
+                  user ? <Project></Project> : <Navigate to='/login'></Navigate>
+                }
+              />
 
-              <Route path='/login'>
-                {!user && <Login></Login>}{' '}
-                {user && <Redirect to='/'></Redirect>}
-              </Route>
+              <Route
+                path='/login'
+                element={user ? <Navigate to='/'></Navigate> : <Login></Login>}
+              />
 
-              <Route path='/signup'>
-                {user && <Redirect to='/'></Redirect>}
-                {!user && <Signup></Signup>}
-              </Route>
-            </Switch>
+              <Route
+                path='/signup'
+                element={
+                  user ? <Navigate to='/'></Navigate> : <Signup></Signup>
+                }
+              />
+            </Routes>
           </div>
 
           {user && <OnlineUsers></OnlineUsers>}

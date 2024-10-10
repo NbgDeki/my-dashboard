@@ -2,7 +2,7 @@
 import './Navbar.scss';
 import Temple from '../assets/temple.svg';
 
-import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import { Link } from 'react-router-dom';
 import { useLogout } from '../hooks/useLogout';
 import { useAuthContext } from '../hooks/useAuthContext';
 

@@ -2,7 +2,7 @@
 import Avatar from './Avatar';
 import './ProjectList.scss';
 
-import { Link } from 'react-router-dom/cjs/react-router-dom.min';
+import { Link } from 'react-router-dom';
 
 export default function ProjectList({ projects }) {
   return (
